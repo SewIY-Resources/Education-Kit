@@ -13,7 +13,7 @@ https://www.arduino.cc/en/guide/libraries <br />
 
 __How to Use__<br />
 
-After you finish sewing up your kit it is time to get some code running on it. First take your programmer and get it all plugged in. Follow the diagram below to plug it into the SewIY Micro Board.....
+After you finish sewing up your kit it is time to get some code running on it. First take your programmer and get it all plugged in. Follow the diagram below to connect it to the SewIY Micro Board:
 
 Programmer --> SewIY Micro Board <br />
 --------------------------------- <br />
@@ -24,4 +24,4 @@ MISO   ->       MISO <br />
 SCK        ->   SCK<br />
 GND          -> GND<br />
 
-After it is wired go to the Arduino IDE. Under Tool -> Board select ATtiny microcontrollers. The under Tools -> Processor select ATTiny85. Following the same step do Tools -> Clock select internal 16 MHz. Finally to set the IDE into the correct programming mode select Tools -> Programmer select USBtinyISP. Then you are ready to upload code. Download the code above and upload it to your SewIY Educational Kit. 
+After it is wired open the Arduino IDE. Under Tool -> Board select ATtiny microcontrollers. Then under Tools -> Processor select ATTiny85. Following the same step do Tools -> Clock select internal 16 MHz. Finally, to set the IDE into the correct programming mode select Tools -> Programmer select USBtinyISP. Then you are ready to upload code. Download the code above and upload it to your SewIY Educational Kit. 
