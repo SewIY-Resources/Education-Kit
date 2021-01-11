@@ -22,7 +22,7 @@
   hardware Serial functions, so you'll need to comment out or remove
   the Serial.x calls in the example code below
 
-  Modded by Patrick Wynn/Patrick-Wynn to work kit developed by SewIY
+  Modded by Patrick Wynn/Patrick-Wynn-SewIY to work with kit developed by SewIY
 
 **********************************************************/
 
