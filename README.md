@@ -7,9 +7,13 @@ Tiny Wire Library needed for ATTINY85 to communicate with MPR121 [Link](https://
 NeoPixel Library for driving the RGB LEDs [Link](https://github.com/adafruit/Adafruit_NeoPixel)<br />
 ATTiny board core. [Link](https://create.arduino.cc/projecthub/arjun/programming-attiny85-with-arduino-uno-afb829)
 
+
+__Useful links__<br />
+https://www.arduino.cc/en/guide/libraries <br />
+
 __How to Use__<br />
 
-After you finish sewing up your kit it is time to get some code running on it. First take your programmer and get it all plugged in. Follow the diagram below to plug it into the SewIY Micro Board..
+After you finish sewing up your kit it is time to get some code running on it. First take your programmer and get it all plugged in. Follow the diagram below to plug it into the SewIY Micro Board.....
 
 Programmer --> SewIY Micro Board <br />
 --------------------------------- <br />
