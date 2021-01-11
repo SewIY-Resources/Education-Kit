@@ -53,15 +53,15 @@ void setup() {
 
 void loop() {
   currtouched = cap.touched();
-  if (cap.touched() & (1 << 4)) {
-    strip.setPixelColor(0, strip.Color(0, 255, 255)); //led num,r,g,b
+  if (cap.touched() & (1 << 4)) { //this tells if pin 4 is touched. if you want to add more touch lines copy this section and just change the "4" to the number channel you want to use
+    strip.setPixelColor(0, strip.Color(0, 255, 255)); //led_num,r,g,b
     strip.setPixelColor(1, strip.Color(0, 255, 255));
     strip.setPixelColor(2, strip.Color(0, 255, 255));
     strip.setPixelColor(3, strip.Color(0, 255, 255));
 
     strip.show();
   }
-  if (! (cap.touched() & (1 << 4)) ) {
+  if (! (cap.touched() & (1 << 4)) ) {//this tells when the touch line is no longer touched. if you wish to add more touch lines copy this fucntion and change the "4" to the pin you are adding
     strip.clear();
     strip.show();
   }
