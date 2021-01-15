@@ -15,14 +15,14 @@
   BSD license, all text above must be included in any redistribution
 
   Modded by Jayson Owens/ja450n to include TinyWire support for ATtiny Boards
-  
+
   Use TinyWireM.h for ATtiny's, otherwise stick with Wire.h
 
   IMPORTANT - If using ATtiny you won't be able to use the
   hardware Serial functions, so you'll need to comment out or remove
   the Serial.x calls in the example code below
 
-  Modded by Patrick Wynn/Patrick-Wynn-SewIY to work with kit developed by SewIY
+  Modded by Patrick Wynn/Patrick-Wynn-SewIY to work kit developed by SewIY
 
 **********************************************************/
 
@@ -33,7 +33,7 @@
 #include <avr/power.h>
 #endif
 #define LED_PIN PB4
-#define LED_COUNT 6
+#define LED_COUNT 5
 
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 Adafruit_MPR121 cap = Adafruit_MPR121();
@@ -47,23 +47,49 @@ void setup() {
 #endif
   strip.begin();
   strip.show();
-  strip.setBrightness(30); //set brighness low so batteries last
+  strip.setBrightness(30); //set brighness low so batteries last max brightness is 255
   cap.begin(0x5A);//I2C address for MRP121
+  cap.writeRegister(MPR121_ECR, 0x00);
+  cap.setThreshholds(0x01, 0x00);//set the sensitivity of the touch lines
+  cap.writeRegister(MPR121_ECR, 0x8F);
 }
 
 void loop() {
   currtouched = cap.touched();
-  if (cap.touched() & (1 << 4)) { //this tells if pin 4 is touched. if you want to add more touch lines copy this section and just change the "4" to the number channel you want to use
-    strip.setPixelColor(0, strip.Color(0, 255, 255)); //led_num,r,g,b
-    strip.setPixelColor(1, strip.Color(0, 255, 255));
-    strip.setPixelColor(2, strip.Color(0, 255, 255));
-    strip.setPixelColor(3, strip.Color(0, 255, 255));
-
+  if (cap.touched() & (1 << 1)) {//touch lines will be one five and ten
+    strip.setPixelColor(0, strip.Color(255, 0, 255)); //led num,r,g,b
+    strip.setPixelColor(1, strip.Color(255, 0, 255));
+    strip.setPixelColor(2, strip.Color(255, 0, 255));
+    strip.setPixelColor(3, strip.Color(255, 0, 255));
+    strip.setPixelColor(3, strip.Color(255, 0, 255));
     strip.show();
   }
-  if (! (cap.touched() & (1 << 4)) ) {//this tells when the touch line is no longer touched. if you wish to add more touch lines copy this fucntion and change the "4" to the pin you are adding
+  if (cap.touched() & (1 << 5)) {//touch lines will be one five and ten
+    strip.setPixelColor(0, strip.Color(255, 0, 255)); //led num,r,g,b
+    strip.setPixelColor(1, strip.Color(255, 0, 255));
+    strip.setPixelColor(2, strip.Color(255, 0, 255));
+    strip.setPixelColor(3, strip.Color(255, 0, 255));
+    strip.setPixelColor(3, strip.Color(255, 0, 255));
+    strip.show();
+  }
+  if (cap.touched() & (1 << 10)) {//touch lines will be one five and ten
+    strip.setPixelColor(0, strip.Color(255, 0, 255)); //led num,r,g,b
+    strip.setPixelColor(1, strip.Color(255, 0, 255));
+    strip.setPixelColor(2, strip.Color(255, 0, 255));
+    strip.setPixelColor(3, strip.Color(255, 0, 255));
+    strip.setPixelColor(3, strip.Color(255, 0, 255));
+    strip.show();
+  }
+  if (! (cap.touched() & (1 << 1)) ) {
+    strip.clear();
+    strip.show();
+  }
+  if (! (cap.touched() & (1 << 5)) ) {
+    strip.clear();
+    strip.show();
+  }
+  if (! (cap.touched() & (1 << 10)) ) {
     strip.clear();
     strip.show();
   }
   lasttouched = currtouched;
-}
